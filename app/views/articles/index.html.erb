@@ -11,11 +11,13 @@
       From the Firehose
     </h3>
 
-   
+    <%= link_to "Create", new_article_path %>
 
-    <%render 'pagination' %>
+    <%= render @articles%>
+
+    <%= render 'pagination' %>
 
   </div>
-  <%render 'rigth_side' %>
+  <%= render 'rigth_side' %>
     
 </div> 
