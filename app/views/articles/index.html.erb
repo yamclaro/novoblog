@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'layouts/longer_featured'%>
 
-<h1>Articles</h1>
-
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
+<div class="row mb-2">
+  <%= render 'layouts/medium_featured'%>
+  <%= render 'layouts/medium_featured'%>
 </div>
 
-<%= link_to "New article", new_article_path %>
+<div class="row g-5">
+  <div class="col-md-8">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+      From the Firehose
+    </h3>
+
+   
+
+    <%render 'pagination' %>
+
+  </div>
+  <%render 'rigth_side' %>
+    
+</div> 

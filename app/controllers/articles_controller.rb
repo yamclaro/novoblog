@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
 
   def index
     @articles = Article.all
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def new
@@ -13,11 +13,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])  
   end
 
   def create
     @article = Article.new(article_params)
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
 
   def update
     respond_to do |format|
+      @article = Article.find(params[:id]) 
       if @article.update(article_params)
         format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
@@ -42,8 +43,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy!
-
+    @article = Article.find(params[:id])  
+    @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
@@ -51,10 +52,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def set_article
-      @article = Article.find(params[:id])
-    end
-
     def article_params
       params.require(:article).permit(:title, :body)
     end
