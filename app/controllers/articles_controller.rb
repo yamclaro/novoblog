@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
-
   def index
-    @articles = Article.all
+    @pagy, @articles = pagy(Article.all,items: 2)
   end
 
   def show

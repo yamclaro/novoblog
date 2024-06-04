@@ -1,27 +1,10 @@
-<%= form_with(model: article) do |form| %>
-  <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<%= simple_form_for article do |form| %>
+  <%= form.input :title %>
+  <%= form.input :body, input_html: {rows: 10} %>
 
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <br>
+  <p>
+    <%= form.button :submit, class: 'btn btn-primary' %>
+    <%= link_to "Back", root_path, class: 'btn btn-secondary' %>
+  </p>
 <% end %>

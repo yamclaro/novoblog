@@ -1,3 +1,4 @@
+
 <%= render 'layouts/longer_featured'%>
 
 <div class="row mb-2">
@@ -11,10 +12,10 @@
       From the Firehose
     </h3>
 
-    <%= link_to "Create", new_article_path %>
-
+    <%= link_to "New Article", new_article_path, class: 'btn btn-primary' %>
+    
     <%= render @articles%>
-
+    
     <%= render 'pagination' %>
 
   </div>
