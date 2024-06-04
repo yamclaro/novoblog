@@ -1,9 +1,9 @@
 
-<%= render 'layouts/longer_featured'%>
+<%= render 'layouts/longer_featured', article: @highlights[0]%>
 
 <div class="row mb-2">
-  <%= render 'layouts/medium_featured'%>
-  <%= render 'layouts/medium_featured'%>
+  <%= render 'layouts/medium_featured', article: @highlights[1]%>
+  <%= render 'layouts/medium_featured', article: @highlights[2]%>
 </div>
 
 <div class="row g-5">
@@ -15,7 +15,7 @@
     <%= link_to "New Article", new_article_path, class: 'btn btn-primary' %>
     
     <%= render @articles%>
-    
+
     <%= render 'pagination' %>
 
   </div>

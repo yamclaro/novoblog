@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @pagy, @articles = pagy(Article.all,items: 2)
+    @highlights = Article.order(created_at: :desc).first(3)
+
+    highlight_ids =  @highlights.pluck(:id).join(',')
+
+    @pagy, @articles = pagy(Article.order(created_at: :desc)
+                                    .where("id NOT IN(#{highlight_ids})"), items: 2)
   end
 
   def show
