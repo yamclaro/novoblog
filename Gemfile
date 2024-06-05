@@ -30,3 +30,5 @@ end
 gem "simple_form", "~> 5.3"
 
 gem "pagy", "~> 8.4"
+
+gem "devise", "~> 4.9"
