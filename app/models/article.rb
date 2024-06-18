@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
    #belongs_to :user
    # belongs_to :category
+    has_one_attached :imagem
     validates :title, presence: true, length: {minimum: 5}
     validates :body, presence: true, length: {minimum: 10}
 
