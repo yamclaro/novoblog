@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = current_user.articles.new
+    @article = Article.new
   end
 
   def edit
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.new(article_params)
+    @article = Article.new(article_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
